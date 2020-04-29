@@ -1,6 +1,6 @@
 # Attribute-based Encryption
 
-Attribute-based encryption enables fine-grained control of encrypted data [SW05]. In a ciphertext-policy ABE (CP-ABE) scheme [GPSW06], for instance, ciphertexts are attached to access policies and keys are associated with sets of attributes. A key is able to recover the message hidden in a ciphertext if and only if the set of attributes *satisfy* the access policy. To give an example, a policy *P* could say *(Zipcode:90210 OR City:BeverlyHills) AND (AgeGroup:18-25)* and an individual *A* could have a key for *({Zipcode:90210}, {AgeGroup:Over65})*, in which case *A* would not be able to decrypt any message encrypted under *P*. A key policy (KP-ABE) scheme, on the other hand, is the dual of CP-ABE with ciphertexts attached to attribute sets and keys associated with access policies. 
+Attribute-based encryption enables fine-grained control of encrypted data [SW05]. In a ciphertext-policy ABE (CP-ABE) scheme [GPSW06], for instance, ciphertexts are attached to access policies and keys are associated with sets of attributes. A key is able to recover the message hidden in a ciphertext if and only if the set of attributes *satisfy* the access policy. To give an example, a policy *P* could say *(Zipcode:90210 OR City:BeverlyHills) AND (AgeGroup:18-25)* and an individual *A* could have a key for *({Zipcode:90210}, {AgeGroup:Over65})*, in which case *A* would not be able to decrypt any message encrypted under *P*. A key policy (KP-ABE) scheme, on the other hand, is the dual of CP-ABE with ciphertexts attached to attribute sets and keys associated with access policies.
 
 I have implemented several ABE schemes in Python using the Charm framework [AGMPRGP13]. Specifically, CP-ABE schemes from [BSW07, Section 4.2], [Waters11, Section 3], [CGW15, Appendix B.2 (full version)], and [AC17, Section 3] are implemented. All implementations are based on Type-III pairings; see AC17 for details.
 
@@ -8,11 +8,20 @@ Some of the schemes above are bounded universe, i.e. they support an a-priori bo
 
 ## Prerequisites
 
-The schemes have been tested with Charm 0.43 and Python 2.7.10 on Mac OS X. Charm 0.43 can be installed from [this](https://github.com/JHUISI/charm/releases) page. Once you have charm, just do
-```python
-python main.py
+The schemes have been tested with Charm 0.43 and Python 2.7.10 on Mac OS X.
+Charm 0.43 can be installed from [this](https://github.com/JHUISI/charm/releases) page, or by running
+```sh
+pip install -r requirements.txt
 ```
-to run the AC17 CP-ABE scheme. You can easily modify `main.py` to try any scheme you wish.
+Charm may be unable to compile on linux systems due an incompatability error
+between openssl versions 1.0 and 1.1, in that case either install charm-crypto
+from the system package manager or downgrade openssl to version 1.0.
+
+Once you have charm, just do
+```sh
+make && pip install . && python samples/main.py
+```
+to run the AC17 CP-ABE scheme. You can easily modify `samples/main.py` to try any scheme you wish.
 
 ## References
 

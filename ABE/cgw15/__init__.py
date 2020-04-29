@@ -16,7 +16,7 @@ Jie Chen, Romain Gay, and Hoeteck Wee
 
 from charm.toolbox.pairinggroup import PairingGroup, ZR, G1, G2, GT, pair
 from charm.toolbox.ABEnc import ABEnc
-from msp import MSP
+from ..msp import MSP
 
 debug = False
 
@@ -27,7 +27,7 @@ class CGW15CPABE(ABEnc):
         self.group = groupObj
         self.assump_size = assump_size  # size of the linear assumption
         self.uni_size = uni_size  # bound on the size of the universe of attributes
-        self.util = MSP(self.group, verbose)  
+        self.util = MSP(self.group, verbose)
 
     def setup(self):
         """
