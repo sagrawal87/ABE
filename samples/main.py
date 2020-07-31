@@ -4,13 +4,13 @@
 '''
 
 from charm.toolbox.pairinggroup import PairingGroup, GT
-from ac17 import AC17CPABE
+from ABE.ac17 import AC17CPABE
 
 
 def main():
     # instantiate a bilinear pairing map
     pairing_group = PairingGroup('MNT224')
-    
+
     # AC17 CP-ABE under DLIN (2-linear)
     cpabe = AC17CPABE(pairing_group, 2)
 
@@ -23,7 +23,7 @@ def main():
 
     # choose a random message
     msg = pairing_group.random(GT)
-   
+
     # generate a ciphertext
     policy_str = '((ONE and THREE) and (TWO OR FOUR))'
     ctxt = cpabe.encrypt(pk, msg, policy_str)
