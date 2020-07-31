@@ -13,11 +13,9 @@ Charm 0.43 can be installed from [this](https://github.com/JHUISI/charm/releases
 ```sh
 pip install -r requirements.txt
 ```
-Charm may be unable to compile on linux systems due an incompatability error
-between openssl versions 1.0 and 1.1, in that case either install charm-crypto
-from the system package manager or downgrade openssl to version 1.0.
+Charm may not compile on Linux systems due to the incompatibility of OpenSSL versions 1.0 and 1.1. You can either install charm-crypto from the system package manager or downgrade OpenSSL to version 1.0.
 
-Once you have charm, just do
+Once you have Charm, just do
 ```sh
 make && pip install . && python samples/main.py
 ```
@@ -31,4 +29,4 @@ to run the AC17 CP-ABE scheme. You can easily modify `samples/main.py` to try an
  4. [Waters11] Waters, Brent. "Ciphertext-policy attribute-based encryption: An expressive, efficient, and provably secure realization." In Public Key Cryptography, vol. 6571, pp. 53-70. 2011.
  5. [AGMPRGR13] Akinyele, Joseph A., Christina Garman, Ian Miers, Matthew W. Pagano, Michael Rushanan, Matthew Green, and Aviel D. Rubin. "Charm: a framework for rapidly prototyping cryptosystems." Journal of Cryptographic Engineering 3, no. 2 (2013): 111-128.
  6. [CGW15] Chen, Jie, Romain Gay, and Hoeteck Wee. "Improved Dual System ABE in Prime-Order Groups via Predicate Encodings." In Annual International Conference on the Theory and Applications of Cryptographic Techniques, pp. 595-624. Springer, Berlin, Heidelberg, 2015. Full version available on ePrint Archive, Report [2015/409](https://eprint.iacr.org/2015/409).
- 7. [AC17] Agrawal, Shashank, and Melissa Chase. "FAME: Fast Attribute-based Message Encryption." To appear in the Proceedings of the 24th ACM conference on Computer and communications security, 2017. Full version available on ePrint Archive, Report [2017/807](https://eprint.iacr.org/2017/807).
+ 7. [AC17] Agrawal, Shashank, and Melissa Chase. "FAME: fast attribute-based message encryption." In Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security, pp. 665-682. 2017. Full version available on ePrint Archive, Report [2017/807](https://eprint.iacr.org/2017/807).
